@@ -11,7 +11,7 @@ USE nama_database;
 SHOW TABLES;
 
 -- MEMBUAT TABLE
-CREATE TABLE users (nama VARCHAR(64), alamat TEXT);
+CREATE TABLE users (nama VARCHAR(64) NOT NULL, alamat TEXT);
 
 -- melihat descrip table
 DESCRIBE name_table / DESC nama_table;
