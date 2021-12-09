@@ -1,3 +1,4 @@
+-- CREATE TABLE CATEGORY
 CREATE TABLE categories (id INT AUTO_INCREMENT, name_category VARCHAR(64), PRIMARY KEY(id));
 
 INSERT INTO categories (name_category)VALUES('Makanan'), ('Minuman'), ('Snack');
@@ -37,3 +38,15 @@ ALTER TABLE products ADD FOFEIGN KEY (id_category) REFERENCES categories (id);
 ---> DELETE -> DATA YG ADA REFERENSI UBAH MENJADI NULL
 
 ALTER TABLE products ADD FOREIGN KEY(id_category) REFERENCES categories(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+-- BUAT TABLE LANGSUNG DIKASIH FOREIGN KEY
+CREATE TABLE products10 (
+  id int,
+  name VARCHAR(64) NOT NULL,
+  description TEXT,
+  price INT NOT NULL DEFAULT 0,
+  id_category INT,
+  quantity INT NOT NULL DEFAULT 0,
+  PRIMARY KEY (id),
+  FOREIGN KEY (id_category) REFERENCES categories (id)
+  );
